@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-python-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-python
+  template:
+    metadata:
+      labels:
+        app: api-python
+    spec:
+      containers:
+      - name: api-python-container
+        image: robpalacios1/app-python:v1
+        ports:
+        - containerPort: 8000
