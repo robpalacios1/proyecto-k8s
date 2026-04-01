@@ -1,7 +1,7 @@
 name: CI/CD Pipeline
 on:
   push:
-    branches: [ master, feature/* ]
+    branches: [ master ]
 
 jobs:
   build-and-push:
