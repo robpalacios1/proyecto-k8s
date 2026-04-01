@@ -116,8 +116,8 @@ File: `.github/workflows/ci-cd.yaml`.
 
 | Secret | Purpose |
 |--------|---------|
-| `DOCKER_USERNAME` | Docker Hub username (login) |
-| `DOCKER_PASSWORD` | Docker Hub token or password (login) |
+| `DOCKERHUB_USERNAME` | Docker Hub username (login) |
+| `DOCKERHUB_TOKEN` | Docker Hub token or password (login) |
 | `DOCKERHUB_USERNAME` | Hub namespace used in the image name in the workflow |
 
 `DOCKER_USERNAME` and `DOCKERHUB_USERNAME` are usually the same Docker Hub ID. The Kubernetes **Deployment** should use the same image repository (`<user>/app-python`) and whichever tag you want to deploy (`latest`, a specific SHA, `v2`, etc.).
