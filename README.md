@@ -126,3 +126,10 @@ File: `.github/workflows/ci-cd.yaml`.
 
 - **`requirements.txt`:** `fastapi` and `uvicorn` (pinned versions).
 - **`.gitignore`:** ignores `venv/`, Python caches, `.idea/`, `.vscode/`, `.env`.
+
+---
+
+## Author
+
+Created by **Roberto Palacios**.  
+[LinkedIn profile](https://www.linkedin.com/in/robpalacios1/)
