@@ -3,7 +3,7 @@
 resource "aws_iam_role" "eks_cluster_role" {
     name = "api-python-eks_cluster_role"
 
-    assume_role_policy = jsoncode({
+    assume_role_policy = jsonencode({
         Version   = "2012-10-17"
         Statement = [
             {
