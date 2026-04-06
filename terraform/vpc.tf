@@ -13,7 +13,7 @@ resource "aws_vpc" "main_vpc" {
 
 # 2. INTERNET GATEWAY
 
-resource "aws_internet_gatewaay" "igw" {
+resource "aws_internet_gateway" "igw" {
     vp_id = aws_vpc.main_vpc.id  # Conneting to our VPC
 
     tags = {
@@ -22,3 +22,48 @@ resource "aws_internet_gatewaay" "igw" {
 }
 
 # 3. PUBLIC SUBNETS
+resource "aws_subnet" "public_subnet_1" {
+    vpc_id                   = aws_vpc.main_vpc.id
+    cidr_block              = "10.0.1.0/24"
+    availability_zone       = "us-east-1a"
+    map_public_ip_on_launch = true
+
+    tags = {
+        Name                     = "public-us-east-1a"
+        "kubernetes.io/role/elb" = "1"
+    }
+}
+
+resource "aws_subnet" "public_subnet_2" {
+    vpc_id                   = aws_vpc.main_vpc.id
+    cidr_block              = "10.0.2.0/24"
+    availability_zone       = "us-east-1b"
+    map_public_ip_on_launch = true
+
+    tags = {
+        Name                     = "public-us-east-1b"
+        "kubernetes.io/role/elb" = "1"
+    }
+}
+
+# 4. Route Table
+
+resource "aws_route_table" "public_rt" {
+    vpc_id = aws_vpc.main_vpc_id
+
+    route {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.igw.id
+    }
+
+    tags {
+        Name = "api-python-public_rt"
+    }
+}
+
+# 5. Table Association
+
+resource "aws_route_table_association" "public_1_assoc" {
+    subnet_id = "aws_subnet.public_1_assoc"
+    route_table_id = "aws_route_table.public_rt.id"
+}
