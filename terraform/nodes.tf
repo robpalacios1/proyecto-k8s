@@ -5,8 +5,8 @@ resource "aws_eks_node_group" "main_nodes" {
 
     #subnets
     subnet_ids = [
-        aws_subnet.public_subnet_1,
-        aws_subnet.public_subnet_2
+        aws_subnet.public_subnet_1.id,
+        aws_subnet.public_subnet_2.id
     ]
 
     #server
