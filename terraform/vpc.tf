@@ -14,7 +14,7 @@ resource "aws_vpc" "main_vpc" {
 # 2. INTERNET GATEWAY
 
 resource "aws_internet_gateway" "igw" {
-    vp_id = aws_vpc.main_vpc.id  # Conneting to our VPC
+    vpc_id = aws_vpc.main_vpc.id  # Conneting to our VPC
 
     tags = {
         Name = "api-python-igw"
