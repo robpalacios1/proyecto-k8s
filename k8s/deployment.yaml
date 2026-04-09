@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api-python-container
-        image: robpalacios1/app-python:4cb632bacd959f53433b0bedcd4a1e5dce9945dd
+        image: robpalacios1/app-python:4c477ba896f3844da1a0a4bd1802fe8d3b5dd746
         ports:
         - containerPort: 8000
         livenessProbe:
